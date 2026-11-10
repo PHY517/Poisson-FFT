@@ -52,4 +52,12 @@ plt.tight_layout()
 plt.show()
 
 
+from scipy import ndimage
+
+lap = ndimage.laplace(phi, mode="wrap") / dx**2
+
+print("real space max |-lap(phi) - rho| =", np.abs(-lap - rho).max())
+print("real space max |rho| =", np.abs(rho).max())
+
+
 
